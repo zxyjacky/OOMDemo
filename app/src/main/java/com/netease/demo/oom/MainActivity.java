@@ -111,6 +111,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			case R.id.bt6:
 				StringBuilder stringBuilder=new StringBuilder();
 				stringBuilder.append("Java Heap Max : ").append(Runtime.getRuntime().maxMemory()/UNIT_M).append(" MB\r\n");
+				stringBuilder.append("Java Heap Total : ").append(Runtime.getRuntime().totalMemory()/UNIT_M).append(" MB\r\n");
+				stringBuilder.append("Java Heap Free : ").append(Runtime.getRuntime().freeMemory()/UNIT_M).append(" MB\r\n");
 				stringBuilder.append("Current used  : ").append((Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory())/UNIT_M).append(" MB\r\n");
 				dashboard.setText(stringBuilder.toString());
 				break;
