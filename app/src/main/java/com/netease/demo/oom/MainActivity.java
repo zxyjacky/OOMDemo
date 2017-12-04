@@ -1,6 +1,7 @@
 package com.netease.demo.oom;
 
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.Process;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		findViewById(R.id.bt6).setOnClickListener(this);
 		findViewById(R.id.bt7).setOnClickListener(this);
 		findViewById(R.id.bt8).setOnClickListener(this);
+		findViewById(R.id.bt9).setOnClickListener(this);
 	}
 
 	@Override
@@ -123,6 +125,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			case R.id.bt8:
 				heap=new ArrayList<>();
 				System.gc();
+				break;
+			case R.id.bt9:
+				StringBuilder nativeSB = new StringBuilder();
+				nativeSB.append("Native Heap Size : ").append(Debug.getNativeHeapSize()/UNIT_M).append(" MB\r\n");
+				nativeSB.append("Native Heap Allocated Size : ").append(Debug.getNativeHeapAllocatedSize()/UNIT_M).append(" MB\r\n");
+				nativeSB.append("Native Heap Free Size : ").append(Debug.getNativeHeapFreeSize()/UNIT_M).append(" MB\r\n");
+				dashboard.setText(nativeSB.toString());
 				break;
 		}
 	}
