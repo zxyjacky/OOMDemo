@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 				nativeSB.append("Native Heap Size : ").append(Debug.getNativeHeapSize()/UNIT_M).append(" MB\r\n");
 				nativeSB.append("Native Heap Allocated Size : ").append(Debug.getNativeHeapAllocatedSize()/UNIT_M).append(" MB\r\n");
 				nativeSB.append("Native Heap Free Size : ").append(Debug.getNativeHeapFreeSize()/UNIT_M).append(" MB\r\n");
+				nativeSB.append("Current used  : ").append((Debug.getNativeHeapAllocatedSize() - Debug.getNativeHeapFreeSize())/UNIT_M).append(" MB\r\n");
 				dashboard.setText(nativeSB.toString());
 				break;
 		}
